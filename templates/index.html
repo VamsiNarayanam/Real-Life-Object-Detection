@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+{% extends "bootstrap/base.html" %} {% block title %} {{ Title }} {% endblock %}
+{% block styles %} {{ super() }}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% endblock %} {% block content %}
+
+<br>
+<h1>OBJECT&nbsp;&nbsp;DETECTION</h1>
+<br>
+
+<div id="container">
+  <br>
+  <img id="videoElement" src="{{ url_for('video_feed') }}" /><br>
+  <form id="control">
+    <b>CAMERA PREVIEW : </b>
+    <a id="cam-preview"><button class="btn btn-default"><b>ON / OFF</b></button></a>
+    <b>FLIP HORIZONTAL : </b>
+    <a id="flip-horizontal"><button class="btn btn-default"><b>ON / OFF</b></button></a>
+    <b>RUN DETECTION : </b>
+    <a id="use-model"><button class="btn btn-default"><b>ON / OFF</b></button></a>
+    <br />
+    <br />
+     <b>EXPOSURE : </b>
+    <a id="exposure-down"><button class="btn btn-default"><b>- 1</b></button></a>
+    <a id="exposure-up"><button class="btn btn-default"><b>+ 1</b></button></a>
+     <b>CONTRAST : </b>
+    <a id="contrast-down"><button class="btn btn-default"><b>- 4</b></button></a>
+    <a id="contrast-up"><button class="btn btn-default"><b>+ 4</b></button></a>
+    <br />
+    <br />
+    <a id="reset-cam"><button class="btn btn-default"><b>RESET CAMERA</b></button></a>
+  </form>
+</div>
+{% endblock %} {% block scripts %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+{{ super() }} {% endblock %}
+</html>
